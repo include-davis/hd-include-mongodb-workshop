@@ -1,0 +1,10 @@
+[
+    {
+      "name": "Home",
+      "slug": "/"
+    },
+    {
+      "name": "Pokemon",
+      "slug": "pokemon"
+    }
+  ]
