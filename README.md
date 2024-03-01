@@ -90,9 +90,7 @@ db.createUser({
 ### 4.3 Connecting with the Codebase
 If that worked, then you should be ready to connect using the codebase! To do so, create a file called `.env` in the root of the repository (same level as package.json) and input the following:
 ```
-MONGO_USERNAME=<USERNAME>
-MONGO_PASSWORD=<PASSWORD>
-MONGO_DB_HOST=127.0.0.1:27017/<DBNAME>
+MONGO_CONNECTION_STRING=mongodb://<username>:<password>@127.0.0.1:27017/<dbname>
 ```
 Replace `<USERNAME>, <PASSWORD>, <DBNAME>` with the actual username, password, and database names. (Don't include the angle brackets).
 
