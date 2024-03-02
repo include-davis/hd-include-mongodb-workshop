@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { ObjectId } from 'mongodb';
 
 import { getDatabase } from '@utils/mongodb/mongoClient.mjs';
 
@@ -11,6 +10,7 @@ export async function POST(request) {
   try {
     // get request body from request
     const body = await request.json();
+    console.log(body)
 
     // if body is empty, throw custom error
     if (isBodyEmpty(body)) {
@@ -19,6 +19,7 @@ export async function POST(request) {
 
     // we expect to take in an ObjectID from the body. This will convert ObjectID strings to ObjectIDs
     const parsedBody = await parseAndReplace(body);
+    console.log(parsedBody)
 
     // get db connection
     const db = await getDatabase();
@@ -30,7 +31,7 @@ export async function POST(request) {
     // MongoDB Node driver works with ObjectIds rather than
     // strings so we must convert strings to ObjectIds
     const pokemon = await db.collection('pokemon').findOne({
-      _id: new ObjectId(creationStatus.insertedId),
+      _id: creationStatus.insertedId,
     });
 
     return NextResponse.json(

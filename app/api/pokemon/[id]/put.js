@@ -10,6 +10,7 @@ export async function PUT(request, { params }) {
     const id = new ObjectId(params.id);
 
     const body = await request.json();
+    
     if (isBodyEmpty(body)) {
       throw new NoContentError();
     }

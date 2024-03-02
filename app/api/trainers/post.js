@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { ObjectId } from 'mongodb';
 
 import { getDatabase } from '@utils/mongodb/mongoClient.mjs';
 
@@ -26,7 +25,7 @@ export async function POST(request) {
     // MongoDB Node driver works with ObjectIds rather than
     // strings so we must convert strings to ObjectIds
     const trainer = await db.collection('trainers').findOne({
-      _id: new ObjectId(creationStatus.insertedId),
+      _id: creationStatus.insertedId,
     });
 
     return NextResponse.json(
