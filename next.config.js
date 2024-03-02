@@ -1,8 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  sassOptions: {
-    includePaths: ['./app/(pages)/_globals/styles'],
-  },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;

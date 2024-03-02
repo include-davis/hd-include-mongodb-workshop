@@ -8,26 +8,17 @@
     "start": "next start",
     "lint": "tsc && next lint",
     "init": "run-script-os",
-    "init:nix": "node --env-file='.env' \"app/(api)/_utils/mongodb/dbInit.mjs\"",
-    "init:windows": "node --env-file=\".\\.env\" \".\\app\\(api)\\_utils\\mongodb\\dbInit.mjs\""
+    "init:nix": "node --env-file='.env' \"app/_utils/mongodb/dbInit.mjs\"",
+    "init:windows": "node --env-file=\".\\.env\" \".\\app\\_utils\\mongodb\\dbInit.mjs\""
   },
   "dependencies": {
     "mongodb": "^6.3.0",
     "next": "14.0.4",
-    "next-cloudinary": "^5.20.0",
     "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^4.11.0",
-    "readline": "^1.3.0",
-    "sass": "^1.69.5"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.0.4",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@typescript-eslint/eslint-plugin": "^6.16.0",
-    "@typescript-eslint/parser": "^6.16.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
@@ -36,10 +27,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-unicorn": "^50.0.1",
-    "postcss": "^8",
     "prettier": "3.0.3",
-    "run-script-os": "^1.1.6",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "run-script-os": "^1.1.6"
   }
 }

@@ -20,16 +20,8 @@
       }
     ],
     "paths": {
-    "@globals/*": ["./app/(pages)/_globals/*"],
-    "@components/*": ["./app/(pages)/_components/*"],
-    "@data/*": ["./app/(pages)/_data/*"],
-    "@hooks/*": ["./app/(pages)/_hooks/*"],
-    "@contexts/*": ["./app/(pages)/_contexts/*"],
     "@utils/*": ["./app/(api)/_utils/*"],   
-    "@actions/*": ["./app/(api)/_actions/*"],
     "@schema/*": ["./app/(api)/_schema/*"],
-    "@datatypes/*": ["./app/(api)/_types/*"],
-    "@lib/*": ["./app/(api)/_lib/*"],
     }
   },
   "include": ["nextEnv.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
