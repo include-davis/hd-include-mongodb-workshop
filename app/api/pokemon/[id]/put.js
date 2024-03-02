@@ -1,10 +1,39 @@
-import { updatePokemon } from '@lib/pokemon/updatePokemon';
-import { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
+import { ObjectId } from 'mongodb';
 
-export async function PUT(
-  request,
-  { params }: { params: { id: string } }
-) {
-  const body = await request.json();
-  return updatePokemon(params.id, body);
+import { getDatabase } from '@utils/mongodb/mongoClient.mjs';
+import isBodyEmpty from '@utils/request/isBodyEmpty';
+import { NoContentError, NotFoundError } from '@utils/response/Errors';
+
+export async function PUT(request, { params }) {
+  try {
+    const id = new ObjectId(params.id);
+
+    const body = await request.json();
+    if (isBodyEmpty(body)) {
+      throw new NoContentError();
+    }
+
+    const db = await getDatabase();
+    const pokemon = await db.collection('pokemon').updateOne(
+      {
+        _id: id,
+      },
+      body
+    );
+
+    if (pokemon.matchedCount === 0) {
+      throw new NotFoundError(`Pokemon with id: ${params.id} not found.`);
+    }
+
+    return NextResponse.json(
+      { ok: true, body: pokemon, error: null },
+      { status: 200 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { ok: false, body: null, error: error.message },
+      { status: error.status || 400 }
+    );
+  }
 }
